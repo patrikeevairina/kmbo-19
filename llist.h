@@ -4,10 +4,16 @@
 #include <cstddef>
 
 // Linked list of integers
+struct Node
+{
+	int data;
+	Node *next;
+};
 
 class LList
 {
-	// HERE WILL BE YOUR CODE
+	private:
+		Node *head; // HERE WILL BE YOUR CODE
 
 	public:
 
