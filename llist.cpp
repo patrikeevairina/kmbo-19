@@ -161,23 +161,18 @@ void LList::reverse()
 {
 	if (size() == 1)
 		return;
-	int array[size()];
-	Node *current = head;
-	size_t i = 0;
-	while (current != NULL)
+	Node *prev = NULL;
+	Node *curr = head;
+	Node *next = head->next;
+	while (next != NULL)
 	{
-		array[size() - i - 1] = current->data;
-		i++;
-		current = current->next;
+		curr->next = prev;
+		prev = curr;
+		curr = next;
+		next = curr->next;
 	}
-	i = 0;
-	current = head;
-	while (current != NULL)
-	{
-		current->data = array[i];
-		i++;
-		current = current->next;
-	}
+	curr->next = prev;
+	head = curr;
 }
 	
 
