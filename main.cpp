@@ -54,8 +54,8 @@ int main()
 	for (size_t i = 0; i < 20000; ++i)
 		l.push_back(i+1);
 
-	LList c = l;
-	LList k = move(c);
+	LList c = l; //по графику, построенному с помощью valgrind, установлено, что объем памяти равен 1.374 мБ
+	LList k = move(c); //468.9 кБ
 	
 
 	cout << "size is " << k.size() << endl;
