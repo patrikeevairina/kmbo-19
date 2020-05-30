@@ -17,9 +17,13 @@ void LList::forceNodeDelete(Node* node)
         return;
     }
 
-    Node* nextDeleteNode = node->next;
-    delete node;
-    forceNodeDelete(nextDeleteNode);
+    Node *buf = node;
+    while (buf)
+    {
+        buf = buf->next;
+        delete node;
+        node = buf;
+    }
 }
 
 LList::LList(const LList &copyList)
